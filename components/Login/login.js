@@ -44,7 +44,7 @@ class Login extends React.Component {
   link (location) {
    // this.props.navigator.push({Component: Regist});
     const { navigate } = this.props.navigation;
-    navigate(location);
+    navigate(location, {a: 1, b: 2}); // 第一个参数是要跳转的路由对应的组件，第二个参数是对象，表示在路由中传递的参数
   }
 
   render () {

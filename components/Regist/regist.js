@@ -28,6 +28,11 @@ class Regist extends React.Component {
     title: '注册'
   }
 
+  componentDidMount () {
+    // 获取路由参数对象：this.props.navigation.state.params
+    alert(this.props.navigation.state.params.a);
+  }
+
   regist () {
     const pwd = this.state.pwd;
     const confirmPwd = this.state.confirmPwd;
