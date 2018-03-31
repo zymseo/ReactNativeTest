@@ -12,7 +12,10 @@
 
 import React from 'react';
 import {
-  StackNavigator
+  StackNavigator,
+  TabNavigator,
+  TabBarBottom,
+  Ionicons
 } from 'react-navigation';
 
 import Login from './components/Login/login';
@@ -25,10 +28,28 @@ const Routes = StackNavigator({
   App: {screen: App}
 });
 
+// https://reactnavigation.org/docs/tab-based-navigation.html
+const TabBar = TabNavigator(
+  {
+    Login: {screen: Login},
+    App: {screen: App}
+  },
+  {
+    tabBarOptions: {
+      activeTintColor: 'white',
+      inactiveTintColor: 'white',
+    },
+    tabBarPosition: 'bottom',
+    animationEnabled: true,
+    swipeEnabled: true,
+  }
+);
+
 class Navigation extends React.Component {
   render () {
     return (
-      <Routes></Routes>
+      <TabBar></TabBar>
+      /** <Routes></Routes> */
     );
   }
 }

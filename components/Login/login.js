@@ -11,7 +11,9 @@ import {
   Text,
   TouchableOpacity,
   TouchableHighlight,
-  TextInput
+  TextInput,
+  ToastAndroid,
+  BackHandler
 } from 'react-native';
 
 import Regist from '../Regist/regist';
@@ -45,6 +47,21 @@ class Login extends React.Component {
    // this.props.navigator.push({Component: Regist});
     const { navigate } = this.props.navigation;
     navigate(location, {a: 1, b: 2}); // 第一个参数是要跳转的路由对应的组件，第二个参数是对象，表示在路由中传递的参数
+  }
+
+  componentDidMount () {
+    ToastAndroid.show('2s后进入主页', ToastAndroid.SHORT);
+    // let timer = setTimeout(() => {
+    //   const { navigate } = this.props.navigation;
+    //   navigate('App');
+    // }, 2000);
+
+    // 
+    BackHandler.addEventListener('hardwareBackPress', () => {
+      return false; // 双击返回键，退出应用，返回false，则
+      // BackHandler.exitApp(); // 单击返回键，直接退出应用
+    });
+    
   }
 
   render () {
